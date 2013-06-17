@@ -48,4 +48,22 @@
     <score>0</score>
     <email>aleontiev11@gmail.com</email>
   </player>
+  <player>
+    <name>SkyTheKIdRs</name>
+    <password>matmat</password>
+    <score>0</score>
+    <email>aleontiev00@gmail.com</email>
+  </player>
+  <player>
+    <name>ben</name>
+    <password>notpoop</password>
+    <score>0</score>
+    <email>aleontiev00@gmail.com</email>
+  </player>
+  <player>
+    <name>mel</name>
+    <password>super!</password>
+    <score>0</score>
+    <email>mavc20012@gmail.com</email>
+  </player>
 </scores>

@@ -147,7 +147,7 @@ namespace Pong
             gun = Content.Load<Song>("Truth of the Legend");
             song = Content.Load<Song>("Cut and Run");
 
-            state = GameState.play;
+            state = GameState.Play;
 
         }
 
@@ -182,8 +182,6 @@ namespace Pong
             if (pressed.Contains(Keys.RightAlt) && pressed.Contains(Keys.S))
             {
 
-                MediaPlayer.Play(gun);
-
                 p1gun2.Color = Color.White;
                 p2gun2.Color = Color.White;
 
@@ -206,8 +204,6 @@ namespace Pong
 
             if (pressed.Contains(Keys.RightAlt) && pressed.Contains(Keys.H))
             {
-
-                MediaPlayer.Play(gun);
 
                 p1gun3.Color = Color.White;
                 p2gun3.Color = Color.White;
@@ -350,7 +346,7 @@ namespace Pong
           
         public void Update(GameTime gameTime)
         {
-            if (state == GameState.play)
+            if (state == GameState.Play)
             {
                 _spriteManager.Update();
             }
@@ -371,22 +367,12 @@ namespace Pong
             {
                 state = (GameState)(Convert.ToInt32(state) * -1);
             }
-
-            if(p1healthbar.Color == Color.White)
-            {
-                gameOver.Color = Color.White;
-            }
-            else if (p2healthempty.Color == Color.White) 
-            {
-                gameOver.Color = Color.White;
-            }
                 //PongHighscoresClient highscore = new PongHighscoresClient();
                 //highscore.SendHighscore(0, "Joe", 0);
                 //foreach (Highscore h in highscore.GetHighestScores())
                 //{
                 //    //displayScore(h.Name, h.Score, h.H
                 //}
-
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -508,8 +494,8 @@ namespace Pong
                     }
                     else if (aiLevel == 2)
                     {
-                        bool rbool = r.Next(101) == 52 || ((Sprite)source).Y == _spriteManager.Sprites[0].Position.Y || ((Sprite)source).Y == _spriteManager.Sprites[0].Position.X;
-                        ((Sprite)source).Y += rbool ? -r.Next(4) : r.Next(4);
+                        bool rbool = r.Next(105) == 52 || ((Sprite)source).Y == _spriteManager.Sprites[0].Position.Y || ((Sprite)source).Y == _spriteManager.Sprites[0].Position.X;
+                        ((Sprite)source).Y -= rbool ? -r.Next(4) : r.Next(4);
                         if ((((Sprite)source).Y < 0 || ((Sprite)source).Y > _viewport.Height) && r.NextDouble() <= 1)
                         {
                             ((Sprite)source).Y -= rbool ? -5 : 5;
