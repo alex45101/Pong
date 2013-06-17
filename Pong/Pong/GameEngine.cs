@@ -416,7 +416,7 @@ namespace Pong
         }
 
         public int aiLevel = 0;
-        private int unbeatable = 3;
+        private int unbeatable = 5;
 
         private void p1_Updated(object source, EventArgs e)
         {

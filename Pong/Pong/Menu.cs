@@ -54,6 +54,8 @@ namespace Pong
         TextSprite stan;
         TextSprite easy;
         TextSprite medium;
+        TextSprite hard;
+        TextSprite abe;
 
         public void Load(SpriteBatch spriteBatch, ContentManager Content)
         {
@@ -77,6 +79,12 @@ namespace Pong
             medium = new TextSprite(spriteBatch, new Vector2(330, 220), Content.Load<SpriteFont>("SpriteFont1"), "Medium", Color.Black);
             medium.Color = Color.Transparent;
 
+            hard = new TextSprite(spriteBatch, new Vector2(445, 220), Content.Load<SpriteFont>("SpriteFont1"), "Hard", Color.Black);
+            hard.Color = Color.Transparent;
+
+            abe = new TextSprite(spriteBatch, new Vector2(525, 220), Content.Load<SpriteFont>("SpriteFont1"), "Abe", Color.Black);
+            abe.Color = Color.Transparent;
+
             controls.Scale = new Vector2(0);
             Sprite controlsHighLite = new Sprite(Content.Load<Texture2D>("ControlsHighLite"), new Vector2(340, 150), null);
             controlsHighLite.Scale = new Vector2(0);
@@ -91,6 +99,62 @@ namespace Pong
             easy.Updated += new EventHandler(easy_Updated);
             stan.Updated += new EventHandler(stan_Updated);
             medium.Updated += new EventHandler(medium_Updated);
+            hard.Updated += new EventHandler(hard_Updated);
+            abe.Updated += new EventHandler(abe_Updated);
+        }
+
+        //abe update
+        void abe_Updated(object sender, EventArgs e)
+        {
+            TextSprite spr = (TextSprite)sender;
+            MouseState mouse = Mouse.GetState();
+
+            if (abe.Color != Color.Transparent)
+            {
+                if (mouse.X > abe.X && mouse.X < abe.X + abe.Width && mouse.Y > abe.Y && mouse.Y < abe.Y + abe.Height)
+                {
+                    abe.Color = Color.Gold;
+                }
+                else
+                {
+                    abe.Color = Color.Black;
+                }
+            }
+
+            if (mouse.X > spr.X && mouse.X < spr.X + spr.Width && mouse.Y > spr.Y && mouse.Y < spr.Y + spr.Height && mouse.LeftButton == ButtonState.Pressed)
+            {
+                _isMultiPlayer = false;
+                _isGameStart = true;
+                _engine.aiLevel = 4;
+
+            }
+        }
+
+        //hard update
+        void hard_Updated(object sender, EventArgs e)
+        {
+            TextSprite spr = (TextSprite)sender;
+            MouseState mouse = Mouse.GetState();
+
+            if (hard.Color != Color.Transparent)
+            {
+                if (mouse.X > hard.X && mouse.X < hard.X + hard.Width && mouse.Y > hard.Y && mouse.Y < hard.Y + hard.Height)
+                {
+                    hard.Color = Color.Gold;
+                }
+                else
+                {
+                    hard.Color = Color.Black;
+                }
+            }
+
+            if (mouse.X > spr.X && mouse.X < spr.X + spr.Width && mouse.Y > spr.Y && mouse.Y < spr.Y + spr.Height && mouse.LeftButton == ButtonState.Pressed)
+            {
+                _isMultiPlayer = false;
+                _isGameStart = true;
+                _engine.aiLevel = 3;
+
+            }
         }
 
         //difficulty level medium
@@ -174,6 +238,8 @@ namespace Pong
             stan.Draw();
             easy.Draw();
             medium.Draw();
+            hard.Draw();
+            abe.Draw();
             sb.End();
         }
 
@@ -230,6 +296,8 @@ namespace Pong
                 stan.Color = Color.Black;
                 easy.Color = Color.Black;
                 medium.Color = Color.Black;
+                hard.Color = Color.Black;
+                abe.Color = Color.Black;
             }
         }
 
