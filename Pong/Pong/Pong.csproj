@@ -89,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="StateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

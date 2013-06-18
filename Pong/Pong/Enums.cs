@@ -7,15 +7,27 @@ namespace Pong
 {
     public enum GameState
     {
-        play = -1,
-        pause = 1
+        Play = -1,
+        Pause = 1
     }
 
     public enum GamemodeState
     { 
-        regular,
-        gun,
-        gun2,
-        gun3
+        Stan,
+        Easy,
+        Medium,
+        Hard,
+        Abe,
+        Multiplayer,
+        SinglePlayer,
+        Gun
+    }
+
+    public enum ScreenState
+    { 
+       TitleScreen,
+       SinglePlayer,
+       MultiPlayer,
+       Options
     }
 }

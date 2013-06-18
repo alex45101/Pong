@@ -252,14 +252,15 @@ namespace Pong
             {
                 _isMultiPlayer = true;
                 _isGameStart = true;
-               // _engine.aiLevel = 1;
+                _engine.aiLevel = 1;
             }
         }
-
+        
         private void singleplayer_Updated(object source, EventArgs e)
         {
             MouseState mouse = Mouse.GetState();
             Sprite spr = (Sprite)source;
+
             if (mouse.X > spr.X && mouse.X < spr.X + spr.Width && mouse.Y > spr.Y && mouse.Y < spr.Y + spr.Height)
             {
                 spriteManager.Sprites[2].Scale = new Vector2(1);
