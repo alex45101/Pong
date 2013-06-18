@@ -147,14 +147,6 @@ namespace Pong
                     hard.Color = Color.Black;
                 }
             }
-
-            if (mouse.X > spr.X && mouse.X < spr.X + spr.Width && mouse.Y > spr.Y && mouse.Y < spr.Y + spr.Height && mouse.LeftButton == ButtonState.Pressed)
-            {
-                _isMultiPlayer = false;
-                _isGameStart = true;
-                _engine.aiLevel = 3;
-
-            }
         }
 
         //difficulty level medium
